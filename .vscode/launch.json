@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringbootAplicacionesApplication<springboot-aplicaciones>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.pruebaconfig.spring.apprueba.springboot_aplicaciones.SpringbootAplicacionesApplication",
+            "projectName": "springboot-aplicaciones",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
