@@ -11,6 +11,4 @@ public class ParametroDTO {
         this.informacion = informacion;
     }
 
-    
-
 }
