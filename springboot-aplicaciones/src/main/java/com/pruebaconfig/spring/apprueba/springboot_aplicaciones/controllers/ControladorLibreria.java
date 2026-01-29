@@ -9,10 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pruebaconfig.spring.apprueba.springboot_aplicaciones.ejemploLibreria.Servicio.ServicioLibro;
-import com.pruebaconfig.spring.apprueba.springboot_aplicaciones.models.Libros;
-import com.pruebaconfig.spring.apprueba.springboot_aplicaciones.repositorios.RepoLibros;
-
+import com.pruebaconfig.spring.apprueba.springboot_aplicaciones.models.Libro;
+import com.pruebaconfig.spring.apprueba.springboot_aplicaciones.repositories.RepoLibros;
+import com.pruebaconfig.spring.apprueba.springboot_aplicaciones.services.ServicioLibro;
 
 @RestController
 @RequestMapping("/api/libros")
@@ -32,25 +31,23 @@ public class ControladorLibreria {
     }
 
     @GetMapping("/todos")
-    public List<Libros> dameTodos() {
+    public List<Libro> dameTodos() {
         return libroRepositorio.findAll();
     }
 
     @GetMapping("/id/{id}")
-    public ResponseEntity<Libros> buscarId(@PathVariable long id) {
-        return libroRepositorio.BuscaId(id).
-                map(ResponseEntity::ok).
-                orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<Libro> buscarId(@PathVariable long id) {
+        return libroRepositorio.BuscaId(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping("/clone")
     public String probarClon() {
-        Libros original = new Libros(0, "Ejemplo", "Ej", LocalDate.MAX);
-        Libros copia = original.clone();
+        Libro original = new Libro(0, "Ejemplo", "Ej", LocalDate.MAX);
+        Libro copia = original.clone();
         copia.setIdLibro(8);
         copia.setTitulo("Copia");
-    
+
         return "Original: " + original.toString() + " | " + copia.toString();
     }
-    
+
 }

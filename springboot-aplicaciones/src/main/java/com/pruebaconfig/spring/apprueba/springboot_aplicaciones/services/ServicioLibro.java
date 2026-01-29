@@ -1,4 +1,4 @@
-package com.pruebaconfig.spring.apprueba.springboot_aplicaciones.ejemploLibreria.Servicio;
+package com.pruebaconfig.spring.apprueba.springboot_aplicaciones.services;
 
 import org.springframework.stereotype.Service;
 

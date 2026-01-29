@@ -2,13 +2,13 @@ package com.pruebaconfig.spring.apprueba.springboot_aplicaciones.models;
 
 import java.time.LocalDate;
 
-public class Libros implements Cloneable {
+public class Libro implements Cloneable {
     private long idLibro;
     private String autor;
     private String titulo;
     private LocalDate fechaPublicacion;
 
-    public Libros(long idLibro, String autor, String titulo, LocalDate fechaPublicacion){
+    public Libro(long idLibro, String autor, String titulo, LocalDate fechaPublicacion) {
 
         this.idLibro = idLibro;
         this.autor = autor;
@@ -48,17 +48,17 @@ public class Libros implements Cloneable {
         this.fechaPublicacion = fechaPublicacion;
     }
 
-    @Override //Investigar bien su utilidad, los casos aplicables y en que nos sirve
-    public Libros clone(){
+    @Override // Investigar bien su utilidad, los casos aplicables y en que nos sirve
+    public Libro clone() {
         try {
-            return(Libros) super.clone();
+            return (Libro) super.clone();
         } catch (CloneNotSupportedException ERROR) {
-            throw new AssertionError();      
+            throw new AssertionError();
         }
     };
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Libros: {" + "Id = " + idLibro + ", titulo = " + titulo + "}";
     }
 }
