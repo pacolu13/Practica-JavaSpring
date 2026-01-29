@@ -1,4 +1,4 @@
-package com.pruebaconfig.spring.apprueba.springboot_aplicaciones.repositories;
+package com.libreria.repositories;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -7,7 +7,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
-import com.pruebaconfig.spring.apprueba.springboot_aplicaciones.models.Libro;
+import com.libreria.models.Libro;
 
 @Repository
 public class RepoLibros implements I_RepoLibros {

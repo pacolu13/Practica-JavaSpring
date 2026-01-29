@@ -8,10 +8,10 @@
 		<version>4.0.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.pruebaconfig.spring.apprueba</groupId>
-	<artifactId>springboot-aplicaciones</artifactId>
+	<groupId>com.libreria</groupId>
+	<artifactId>springboot-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springboot-aplicaciones</name>
+	<name>springboot-app</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>

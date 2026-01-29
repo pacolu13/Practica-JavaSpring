@@ -1,9 +1,9 @@
-package com.pruebaconfig.spring.apprueba.springboot_aplicaciones.repositories;
+package com.libreria.repositories;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.pruebaconfig.spring.apprueba.springboot_aplicaciones.models.Libro;
+import com.libreria.models.Libro;
 
 public interface I_RepoLibros {
     List<Libro> findAll();

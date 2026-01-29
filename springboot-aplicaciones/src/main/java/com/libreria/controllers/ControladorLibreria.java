@@ -1,6 +1,5 @@
-package com.pruebaconfig.spring.apprueba.springboot_aplicaciones.controllers;
+package com.libreria.controllers;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -11,14 +10,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pruebaconfig.spring.apprueba.springboot_aplicaciones.models.Libro;
-import com.pruebaconfig.spring.apprueba.springboot_aplicaciones.repositories.I_RepoLibros;
-import com.pruebaconfig.spring.apprueba.springboot_aplicaciones.services.I_ServicioLibro;
+import com.libreria.models.Libro;
+import com.libreria.repositories.I_RepoLibros;
+import com.libreria.services.I_ServicioLibro;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-
-
 
 
 @RestController

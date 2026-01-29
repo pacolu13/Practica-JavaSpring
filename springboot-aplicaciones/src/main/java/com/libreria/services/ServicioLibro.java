@@ -1,12 +1,12 @@
-package com.pruebaconfig.spring.apprueba.springboot_aplicaciones.services;
+package com.libreria.services;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.pruebaconfig.spring.apprueba.springboot_aplicaciones.models.Libro;
-import com.pruebaconfig.spring.apprueba.springboot_aplicaciones.repositories.I_RepoLibros;
+import com.libreria.models.Libro;
+import com.libreria.repositories.I_RepoLibros;
 
 @Service // Componente de servicio - Logica de negocio - bean - inyeccion de dep.
 public class ServicioLibro implements I_ServicioLibro {

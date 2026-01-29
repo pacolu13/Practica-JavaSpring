@@ -1,9 +1,9 @@
-package com.pruebaconfig.spring.apprueba.springboot_aplicaciones.services;
+package com.libreria.services;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.pruebaconfig.spring.apprueba.springboot_aplicaciones.models.Libro;
+import com.libreria.models.Libro;
 
 public interface I_ServicioLibro {
     List<Libro>ObtenerTodos();

@@ -1,4 +1,4 @@
-package com.pruebaconfig.spring.apprueba.springboot_aplicaciones.models;
+package com.libreria.models;
 
 import java.time.LocalDate;
 
