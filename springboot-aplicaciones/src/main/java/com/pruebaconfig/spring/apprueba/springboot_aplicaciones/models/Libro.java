@@ -61,4 +61,9 @@ public class Libro implements Cloneable {
     public String toString() {
         return "Libros: {" + "Id = " + idLibro + ", titulo = " + titulo + "}";
     }
+
+    public void remove(Libro existing) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'remove'");
+    }
 }

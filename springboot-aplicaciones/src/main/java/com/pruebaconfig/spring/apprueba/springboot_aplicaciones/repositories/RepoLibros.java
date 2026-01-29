@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.pruebaconfig.spring.apprueba.springboot_aplicaciones.models.Libro;
 
 @Repository
-public class RepoLibros {
+public class RepoLibros implements I_RepoLibros {
     private final List<Libro> libros = new ArrayList<>();
 
     public RepoLibros() {
@@ -20,12 +20,30 @@ public class RepoLibros {
         libros.add(new Libro(4, "Naomi", "T4", LocalDate.of(2005, 11, 11)));
     }
 
+    @Override
     public List<Libro> findAll() {
         return libros;
     }
 
-    //Expresion lambda
-    public Optional<Libro> BuscaId(long idLibro) {
-        return libros.stream().filter(libros1 -> libros1.getIdLibro() == idLibro).findFirst();
+    @Override
+    public Optional<Libro> findById(long id) {
+        return libros.stream().filter(libros1 -> libros1.getIdLibro() == id).findFirst();
+
     }
+
+    @Override
+    public void save(Libro libro) {
+        findById(libro.getIdLibro()).ifPresent(existing -> {
+            libro.remove(existing);
+        });
+        libros.add(libro);
+    }
+
+    @Override
+    public void deleteById(long id) {
+        findById(id).ifPresent(libros::remove);
+    }
+
+    //Repasar expresiones lambda
+    
 }
