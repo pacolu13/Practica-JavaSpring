@@ -19,6 +19,16 @@
             "projectName": "springboot-aplicaciones",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringLibreria<springboot-app>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.libreria.SpringLibreria",
+            "projectName": "springboot-app",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
