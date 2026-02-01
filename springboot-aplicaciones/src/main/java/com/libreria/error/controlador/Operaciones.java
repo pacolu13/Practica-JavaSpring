@@ -22,8 +22,8 @@ class ObjetoNull {
 
     @GetMapping("valornulo")
     public String nulo() {
-        String valorNUlo = null;
-        valorNUlo.length();
+        String valorNulo = null;
+        System.out.println(valorNulo);
 
         return "Valor nulo en la variable";
     }

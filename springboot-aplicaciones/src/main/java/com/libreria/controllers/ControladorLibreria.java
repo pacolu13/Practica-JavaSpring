@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.libreria.models.Libro;
-import com.libreria.repositories.I_RepoLibros;
 import com.libreria.services.I_ServicioLibro;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,11 +22,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class ControladorLibreria {
 
     private final I_ServicioLibro i_servicio;
-    private final I_RepoLibros i_repo;
 
-    public ControladorLibreria(I_ServicioLibro i_servicio, I_RepoLibros i_repo) {
+    public ControladorLibreria(I_ServicioLibro i_servicio) {
         this.i_servicio = i_servicio;
-        this.i_repo = i_repo;
     }
 
     @GetMapping("/all")

@@ -3,7 +3,7 @@ package com.libreria.services;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.libreria.models.Libro;
@@ -13,7 +13,7 @@ import com.libreria.repositories.I_RepoLibros;
 public class ServicioLibro implements I_ServicioLibro {
     private final I_RepoLibros i_repo;
 
-    @Autowired
+    // @Autowired -> Innecesario cuando solo existe un constructor
     public ServicioLibro(I_RepoLibros i_repo) {
         this.i_repo = i_repo;
     }

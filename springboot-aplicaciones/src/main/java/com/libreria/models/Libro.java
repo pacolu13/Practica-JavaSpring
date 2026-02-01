@@ -63,7 +63,6 @@ public class Libro implements Cloneable {
     }
 
     public void remove(Libro existing) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'remove'");
+        System.out.println("Eliminamos un libro");
     }
 }
