@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.libreria.DTOs.ArticuloDTO;
 import com.libreria.services.ServicioArticulo;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 
