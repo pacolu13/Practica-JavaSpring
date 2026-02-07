@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import com.libreria.repositories.Repo_Usuario;
 
 @Service
+// Servicio que implementa UserDetailsService para cargar los detalles del usuario desde la base de datos
 public class ServicioUsuario implements UserDetailsService {
 
     @Autowired
@@ -21,9 +22,12 @@ public class ServicioUsuario implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String nombreUsuario)
             throws UsernameNotFoundException {
-        var usuario = repoUsuario.findByUsername(nombreUsuario)
+        var usuario = repoUsuario.findByUsuario(nombreUsuario)
                 .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
 
-        return new User(usuario.getUsuario(), usuario.getPassword(),List.of(new SimpleGrantedAuthority("Role: " + usuario.getRol())));
+        return new User(usuario.getUsuario(), usuario.getPassword(),
+        //Convierte un usuario en el formato que necesita Spring Security, 
+        //signándole un rol basado en el campo "rol" del usuario
+        List.of(new SimpleGrantedAuthority("ROLE_" + usuario.getRol())));
     }
 }

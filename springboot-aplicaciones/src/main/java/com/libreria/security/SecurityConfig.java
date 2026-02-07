@@ -9,33 +9,47 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+
+import com.libreria.services.ServicioUsuario;
 
 @Configuration
-@EnableWebSecurity
+@EnableWebSecurity // Habilita la seguridad web en la aplicación
 public class SecurityConfig {
+
+    // Inyectamos el servicio de usuario para cargar los detalles del usuario
+    private final ServicioUsuario servicioUsuario;
+
+    public SecurityConfig(ServicioUsuario servicioUsuario) {
+        this.servicioUsuario = servicioUsuario;
+    }
 
     @Bean
     public PasswordEncoder codificaPass() {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
+    @Bean // Configura el AuthenticationManager para manejar la autenticación de usuarios
     public AuthenticationManager autenticacion(AuthenticationConfiguration authConfig)
             throws Exception {
-        return authConfig.getAuthenticationManager();
+        return authConfig.getAuthenticationManager(); // Devuelve el AuthenticationManager configurado por Spring Security
     }
 
-    @Bean
-    public SecurityFilterChain securityChain(HttpSecurity http)
+    @Bean // Configura la cadena de filtros de seguridad
+    public SecurityFilterChain securityChain(HttpSecurity http, AuthenticationManager authManager)
             throws Exception {
         http.csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
-                .securityMatcher("/**")
-                .addFilterBefore(new BasicAuthenticationFilter(
-                        http.getSharedObject(AuthenticationManager.class)
-                ), UsernamePasswordAuthenticationFilter.class);
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/api/auth/**")
+                        .permitAll()
+                        .requestMatchers("/api/articulo/**")
+                        .hasAnyRole("ADMIN", "USER")
+                        .anyRequest().authenticated())
+                .authenticationManager(authManager)
+                .userDetailsService(servicioUsuario)
+                .formLogin(form -> form.permitAll())
+                .httpBasic(basic -> {
+                });
+
         return http.build();
     }
 }

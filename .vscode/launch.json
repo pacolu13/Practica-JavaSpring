@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "GeneraPass",
+            "request": "launch",
+            "mainClass": "com.libreria.GeneraPass",
+            "projectName": "springboot-aplicaciones"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-SpringbootAplicacionesApplication<springboot-aplicaciones>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
@@ -18,7 +25,8 @@
             "mainClass": "com.libreria.SpringLibreria",
             "projectName": "springboot-aplicaciones",
             "args": "",
-            "envFile": "${workspaceFolder}/.env"
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=55773 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=springboot-aplicaciones"
         },
         {
             "type": "java",

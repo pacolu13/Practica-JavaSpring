@@ -23,7 +23,7 @@ public class Usuario {
     @Column(nullable = false, unique = true, length = 60)
     private String rol;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, unique = true, length = 60)
     private String password;
 
     public Long getId() {
