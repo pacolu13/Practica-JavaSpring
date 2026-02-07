@@ -1,5 +1,7 @@
 package com.libreria.entity;
 
+import org.jspecify.annotations.Nullable;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,6 +22,9 @@ public class Usuario {
 
     @Column(nullable = false, unique = true, length = 60)
     private String rol;
+
+    @Column(nullable = false, length = 100)
+    private String password;
 
     public Long getId() {
         return id;
@@ -45,5 +50,12 @@ public class Usuario {
         this.rol = rol;
     }
 
-    
+    public @Nullable String getPassword() {
+        return password;
+    }
+
+    public void setPassword(@Nullable String password) {
+        this.password = password;
+    }
+
 }
