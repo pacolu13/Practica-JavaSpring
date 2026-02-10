@@ -28,7 +28,6 @@ public class RepoLibros implements I_RepoLibros {
     @Override
     public Optional<Libro> findById(long id) {
         return libros.stream().filter(libros1 -> libros1.getIdLibro() == id).findFirst();
-
     }
 
     @Override
